@@ -1,0 +1,168 @@
+<ion-content>
+  <main>
+    <div class="wrapper">
+      <header class="header text_center margin_bottom_40">
+        <div class="container">
+          <div class="row">
+            <span class="col-20"><a (click)="this.navCtrl.pop()" class="float_left"><img
+                    src="./assets/images/icons/back.svg"></a></span>
+            <span class="text_center col-60"><h4>Featured</h4></span>
+            <span class="col-20"><a (click)="openmenu()" class="float_right"><img
+                    src="./assets/images/icons/listing-option.svg"></a></span>
+          </div>
+        </div>
+      </header>
+      <div class="container padding_top_20">
+        <section class="padding_bottom_20">
+          <ul class="tabs">
+            <li [class.active]="resedntial">
+              <a (click)="openresd()">RESIDENTIAL</a>
+            </li>
+            <li [class.active]="commercial">
+              <a (click)="opencommerc()">COMMERCIAL</a>
+            </li>
+          </ul>
+          <div class="feature_listing padding_top_10 padding_bottom_60 text_center" *ngIf="resedntial">
+            <h3>FEATURED LISTINGS</h3>
+            <p *ngIf="shownores">There Are No Listings</p>
+
+            <ion-slides>
+
+              <ion-slide *ngFor="let p of resdata1">
+                <div *ngIf="p.images != undefined">
+                  <img (click)="savetowish(p)" style="width: 23px;
+    float: left;
+    margin-top: 5px;
+    position: absolute;
+    top: 5%;
+    z-index: 11111;
+    right: 2%;
+}" src="./assets/images/icons/icons8-heart.png">
+                  <img (click)="openprop(p)"
+                       [src]="'https://ovza.com/oriented/userdata/List/'+p.userid+'/'+p.images[0].lid+'/'+p.images[0].list_image">
+
+                </div>
+                <div *ngIf="p.images == undefined">
+
+                  <img style="height: 387px;" src="./assets/images/splashscreen.png">
+
+                </div>
+                <div (click)="openprop(p)" class="info" style="    margin-bottom: 24px;">
+                  <p>{{p.listaddress1}}</p>
+                  <p>{{p.homesize == undefined || null ? p.lotsize : p.homesize}} Sq.ft / {{p.beds}} Beds /
+                    {{p.bathrooms}} Bathrooms</p>
+                  <p class="price" *ngIf="p.PriceState==1">$ {{p.list_price}}</p>
+                  <p class="price" *ngIf="p.PriceState==0">Hidden Price</p>
+
+                </div>
+              </ion-slide>
+            </ion-slides>
+            <ion-slides>
+              <ion-slide *ngFor="let p of resdata2">
+                <div *ngIf="p.images != undefined">
+                  <img (click)="savetowish(p)" style="width: 23px;
+    float: left;
+    margin-top: 5px;
+    position: absolute;
+    top: 10%;
+    z-index: 11111;
+    right: 2%;
+}" src="./assets/images/icons/icons8-heart.png">
+                  <img (click)="openprop(p)"
+                       [src]="'https://ovza.com/oriented/userdata/List/'+p.userid+'/'+p.images[0].lid+'/'+p.images[0].list_image">
+
+                </div>
+                <div *ngIf="p.images == undefined">
+                  <img style="height: 387px;" src="./assets/images/splashscreen.png">
+
+                </div>
+                <div (click)="openprop(p)" class="info" style="    margin-bottom: 24px;">
+                  <p>{{p.listaddress1}}</p>
+                  <p>{{p.homesize == undefined || null ? p.lotsize : p.homesize}} Sq.ft / {{p.beds}} Beds /
+                    {{p.bathrooms}} Bathrooms</p>
+                  <p class="price">$ {{p.list_price}}</p>
+                </div>
+              </ion-slide>
+            </ion-slides>
+          </div>
+
+          <!--Commercial from here -->
+          <div class="feature_listing padding_top_10 padding_bottom_60 text_center" *ngIf="commercial">
+            <h3>FEATURED LISTINGS</h3>
+            <p *ngIf="shownocom">There Are No Listings</p>
+            <ion-slides #promoSlider>
+              <ion-slide *ngFor="let p of comdata1">
+                <div *ngIf="p.images != undefined">
+                  <img (click)="savetowish(p)" style="width: 23px;
+    float: left;
+    margin-top: 5px;
+    position: absolute;
+    top: 10%;
+    z-index: 11111;
+    right: 2%;
+}" src="./assets/images/icons/icons8-heart.png">
+                  <img (click)="openprop(p)"
+                       [src]="'https://ovza.com/oriented/userdata/List/'+p.userid+'/'+p.images[0].lid+'/'+p.images[0].list_image">
+                </div>
+                <div *ngIf="p.images == undefined">
+                  <img (click)="openprop(p)" style="height: 387px;" src="./assets/images/splashscreen.png">
+
+                </div>
+                <div (click)="openprop(p)" class="info" style="    margin-bottom: 24px;">
+                  <p>{{p.listaddress1}}</p>
+                  <p>{{p.homesize == undefined || null ? p.lotsize : p.homesize}} Sq.ft / {{p.beds}} Beds /
+                    {{p.bathrooms}} Bathrooms</p>
+                  <p class="price">$ {{p.list_price}}</p>
+                </div>
+              </ion-slide>
+            </ion-slides>
+            <ion-slides>
+              <ion-slide *ngFor="let p of comdata2">
+                <div *ngIf="p.images != undefined">
+                  <img (click)="savetowish(p)" style="width: 23px;
+    float: left;
+    margin-top: 5px;
+    position: absolute;
+    top: 10%;
+    z-index: 11111;
+    right: 2%;
+}" src="./assets/images/icons/icons8-heart.png">
+                  <img (click)="openprop(p)"
+                       [src]="'https://ovza.com/oriented/userdata/List/'+p.userid+'/'+p.images[0].lid+'/'+p.images[0].list_image">
+
+                </div>
+                <div *ngIf="p.images == undefined">
+                  <img (click)="openprop(p)" style="height: 387px;" src="./assets/images/splashscreen.png">
+
+                </div>
+                <div (click)="openprop(p)" class="info" style="    margin-bottom: 24px;">
+                  <p (>{{p.listaddress1}}</p>
+                  <p>{{p.homesize == undefined || null ? p.lotsize : p.homesize}} Sq.ft / {{p.beds}} Beds /
+                    {{p.bathrooms}} Bathrooms</p>
+                  <p class="price">$ {{p.list_price}}</p>
+                </div>
+              </ion-slide>
+            </ion-slides>
+          </div>
+        </section>
+      </div>
+      <nav class="nav_tabs">
+        <ul class="left_side">
+          <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+          <li><a (click)="opennav('add')">
+            <img
+                    [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+          </li>
+        </ul>
+        <ul class="center_side">
+          <li><a (click)="opensearchpop()"><img src="./assets/images/icons/magnifying-glass.svg"></a></li>
+        </ul>
+        <ul class="right_side">
+          <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+          <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </main>
+</ion-content>

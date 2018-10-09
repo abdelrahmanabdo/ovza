@@ -1,0 +1,140 @@
+<ion-content style="height: 108%">
+
+  <div class="wrapper">
+    <div class="container">
+      <section class="padding_top_bottom_20">
+        <ul class="tabs">
+          <li [class.active]="login">
+            <a (click)="openlogin()" style="cursor:pointer">login</a>
+          </li>
+          <li [class.active]="signup">
+            <a (click)="openregister()" style="cursor:pointer">register</a>
+          </li>
+        </ul>
+        <div class="login_form text_center" style="    margin-left: 15%;
+    margin-right: 15%;" [hidden]="signup">
+          <h3 style="    text-align: center;">LOG IN WITH YOUR ACCOUNT</h3>
+          <div>
+            <!--login-->
+            <form (ngSubmit)="submitted2=true;singin()" [formGroup]="Login" style="width:100%; ">
+              <fieldset>
+                <label><img src="./assets/images/icons/envelope.svg"></label>
+                <input class="input has_icon" type="text" name="" placeholder="EMAIL" formControlName="email">
+              </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+              <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted2 && !Login.controls.email.valid)">Invalid Email</p>
+            </div><fieldset>
+                <label><img src="./assets/images/icons/lock.svg"></label>
+                <input class="input has_icon" type="password" name="" placeholder="PASSWORD" formControlName="password">
+              </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+              <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted2 && !Login.controls.password.valid)">Please Enter Password</p>
+            </div> <div class="forget_pass">
+                <p>Forgot Password? <a (click)="forgetpass()">Click Here</a></p>
+              </div>
+              <div class="actions padding_left_right_20">
+                <button class="btn btn_block btn_login" type="submit">
+                  SIGN IN <img src="./assets/images/icons/login-white.svg">
+                </button>
+                <!--<button class="btn btn_block btn_facebook">-->
+                  <!--<img src="./assets/images/icons/facebook-white.svg"> Login with Facebook-->
+                <!--</button>-->
+                <!--<button class="btn btn_block btn_googleplus">-->
+                  <!--<img src="./assets/images/icons/google-plus-white.svg"> Login with Google-->
+                <!--</button>-->
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="signup_form text_center" [hidden]="login" style="    margin-left: 15%;
+    margin-right: 15%;">
+          <h4>REGISTER NOW!</h4>
+          <span>Please fill out the required fields.</span>
+          <div>
+            <form name="register" (ngSubmit)="signup1()" [formGroup]="Register"
+                  style="width:100%">
+              <fieldset>
+                <label><img src="./assets/images/icons/man-user.svg"></label>
+                <input class="input has_icon" type="text" name="" placeholder="FIRST NAME" formControlName="fname">
+              </fieldset>
+              <div> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+                <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !Register.controls.fname.valid)">Please Enter Your First
+                  Name</p>
+              </div> </div>
+
+              <fieldset>
+                <label><img src="./assets/images/icons/man-user.svg"></label>
+                <input class="input has_icon" type="text" name="" placeholder="LAST NAME" formControlName="lname">
+              </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+              <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !Register.controls.lname.valid)">Please Enter Your Last
+                Name</p>
+            </div><fieldset>
+                <label><img src="./assets/images/icons/envelope.svg"></label>
+                <input class="input has_icon" type="text" name="" placeholder="EMAIL" formControlName="email">
+              </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+              <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !Register.controls.email.valid)">Invalid Email</p>
+            </div><fieldset>
+                <label><img src="./assets/images/icons/lock.svg"></label>
+                <input class="input has_icon" type="password" name="" placeholder="PASSWORD" formControlName="password">
+              </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+              <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !Register.controls.password.valid)">Please Enter a Password</p>
+            </div> <fieldset>
+                <label><img src="./assets/images/icons/lock.svg"></label>
+                <input class="input has_icon" type="password" name="" placeholder="CONFIRM PASSWORD"
+                       formControlName="passwordconfirm">
+              </fieldset>
+              <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+              <p style="margin-bottom: 13px;
+              margin-top: -13px;color:red"
+                 [hidden]="!(submitted && !(Register.value.password == Register.value.passwordconfirm))">Password
+                Doesn't Match</p>
+              </div> <div class="account_type">
+                <h4>ACCOUNT TYPE</h4>
+                <div class="radio_input">
+                  <input type="radio" name="agentstatus" id="radio_one" formControlName="agentstatus" value="1">
+                  <label for="radio_one">User</label>
+                </div>
+                <div class="radio_input">
+                  <input type="radio" name="agentstatus" id="radio_two" formControlName="agentstatus" value="2">
+                  <label for="radio_two">Agent</label>
+                </div>
+                <div class="radio_input">
+                  <input type="radio" name="agentstatus" id="radio_three" formControlName="agentstatus" value="3">
+                  <label for="radio_three">Private Seller</label>
+                </div>
+              </div> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+              <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !Register.controls.agentstatus.valid)">Please Choose Account
+                Type</p>
+            </div><div class="actions padding_left_right_20">
+                <button class="btn btn_block btn_login" type="submit" (click)="submitted=true">
+                  SIGN UP
+                </button>
+                <!--<button class="btn btn_block btn_facebook" (click)="submitted=true;">-->
+                  <!--<img src="./assets/images/icons/facebook-white.svg"> Login with Facebook-->
+                <!--</button>-->
+                <!--<button class="btn btn_block btn_googleplus">-->
+                  <!--<img src="./assets/images/icons/google-plus-white.svg"> Login with Google-->
+                <!--</button>-->
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </div>
+
+</ion-content>

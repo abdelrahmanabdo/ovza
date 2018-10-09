@@ -1,0 +1,54 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center">
+      <div class="container">
+        <div class="row">
+						<span class="col-20"><a (click)="this.navCtrl.pop()" class="float_left">
+							<img src="./assets/images/icons/back.svg">
+						</a></span>
+          <span class="text_center col-60"><h4>PROFILE</h4></span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right">
+							<img src="./assets/images/icons/listing-option.svg">
+						</a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="centered">
+        <div class="margin_top_40 profile" *ngIf="res2">
+          <div class=" text_center">
+            <img src="./assets/images/user_img.png" title="Ovza">
+            <h5 class="main_color">{{res2.firstname}} {{res2.lastname}}</h5>
+            <h5>{{type}}</h5>
+            <mark>Logo</mark>
+          </div>
+          <div class="bio">
+            <h5>ABOUT</h5>
+            <h5></h5>
+            <p>{{res1.aboutme}}</p>
+
+          </div>
+          <div *ngIf="false" class="feat_listing text_center max_width_400 margin_auto margin_bottom_60">
+            <h5 class="main_color">FEATURED LISTINGS</h5>
+            <img src="./assets/images/property_item.jpg" title="Ovza">
+          </div>
+        </div>
+      </section>
+    </div>
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+          <img
+            [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li> </ul>
+      <ul class="center_side">
+        <li><a (click)="this.navCtrl.pop()"><img src="./assets/images/icons/back.svg"></a></li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>

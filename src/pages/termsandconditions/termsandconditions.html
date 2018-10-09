@@ -1,0 +1,97 @@
+<!--
+  Generated template for the TermsandconditionsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content>
+  <main>
+    <div class="wrapper">
+      <header class="header text_center">
+        <div class="container">
+          <div class="row">
+            <span class="col-20"><a (click)="this.navCtrl.pop({animate:false})" class="float_left"><img
+              src="./assets/images/icons/back.svg"></a></span>
+            <span class="text_center col-60"><h4>TERMS & CONDITIOMS</h4></span>
+            <span class="col-20"><a (click)="openmenu()" class="float_right"><img
+              src="./assets/images/icons/listing-option.svg"></a></span>
+          </div>
+        </div>
+      </header>
+      <div class="container">
+        <section class="terms margin_top_40 padding_bottom_100">
+          <ul style="    font-family: 'Raleway', sans-serif;
+    font-weight: 400 !important;
+    line-height: 24px;color: #7e7e7e;font-size: 14px;float:left;margin-left:5%"
+              class="sectionHeading font-size14 paragrphtext robotoregular lgraytext mgnL25 dashedLi">
+            <li>Users should be at least 18 years old</li>
+            <li>The website is only to be used for personal use for browsing available properties, or for the
+              advertising or a property that is for sale or for rent
+            </li>
+            <li>Do not upload any offensive, illegal or unethical information to the website or any other information
+              which could cause harm to us or anyone else
+            </li>
+            <li>Ovza trademarks, logos and designs cannot be used or transferred without first obtaining permission from
+              Ovza since all materials on the website are trademark protected
+            </li>
+            <li>Register all of your personal information with precision before entering our site so we can authenticate
+              your identity quickly
+            </li>
+            <li>Allow us to correspond with you via e-mail to inform you of matters regarding your account, or other
+              services provided by the OVZA or others on the site. Subscribers will be given the option to unsubscribe
+              at any time.
+            </li>
+            <li>Ovza holds its exclusive rights without any responsibility to you or others in changing the terms or
+              conditions of using the site at any time without notice. The act of using the services after the date of
+              the implementation of the changes is considered as an approval of these changes
+            </li>
+            <li>The site or the services could be unavailable due to some maintenance or development of the site, or due
+              to an unauthorized login from you or others, or for any other reasons out of Ovza’s control and you agree
+              that Ovza is not responsible for losing the service in such cases.
+            </li>
+            <li>Ovza reserves its right and exclusive authority to terminate your license, to use the site or the
+              available services without informing you and to block you from it in the future in case of any violation
+              of the terms of use
+            </li>
+            <li></li>
+            <li>Postponing the execution of any right given in the terms of use will not be considered a waiver of that
+              right
+            </li>
+            <li>Our terms of use are governed by the law of the United Kingdom, however, Ovza may initiate take legal
+              procedures in any competent jurisdiction in the following occurs: infringement of intellectual property
+              rights, trademark, or damage to the site or on information provided by the user.
+            </li>
+            <li>All the information listed in the conditions of use are a property of Ovza LLC whose headquarters reside
+              in London England at the following address:
+            </li>
+          </ul>
+          <div class="check main_color">
+            <label>
+              <input type="checkbox" class="option-input checkbox" [(ngModel)]="isChecked"/>
+              Please accept Terms and Conditions
+            </label>
+          </div>
+          <p [hidden]="!(clicked && !isChecked )">Please Accept Terms And Conditions</p>
+        </section>
+      </div>
+      <nav class="nav_tabs">
+        <ul class="left_side">
+          <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+          <li><a (click)="opennav('add')">
+            <img
+              [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+          </li>
+        </ul>
+        <ul class="center_side">
+          <li><a (click)="clicked=true;openedit()"><img src="./assets/images/icons/next.svg"></a></li>
+        </ul>
+        <ul class="right_side">
+          <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+          <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+        </ul>
+      </nav>
+    </div>
+  </main>
+</ion-content>

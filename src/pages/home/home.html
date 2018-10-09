@@ -1,0 +1,141 @@
+<ion-content>
+  <main>
+    <div class="wrapper">
+      <header class="header text_center margin_bottom_40">
+        <div class="container">
+          <div class="row">
+            <span class="col-20"></span>
+            <span class="text_center col-60"><h4>Search</h4></span>
+            <span class="col-20"><a (click)="openmenu()" class="float_right"><img
+              src="./assets/images/icons/listing-option.svg"></a></span>
+          </div>
+        </div>
+      </header>
+      <div class="container padding_top_20">
+        <section class="padding_bottom_20">
+          <ul class="tabs">
+            <li [class.active]="resedntial">
+              <a (click)="openresd();com=false;submitted=false;">RESIDENTIAL</a>
+            </li>
+            <li [class.active]="commercial">
+              <a (click)="opencommerc();com=true;submitted=false">COMMERCIAL</a>
+            </li>
+          </ul>
+          <div class="feature_listing padding_top_10 padding_bottom_60 text_center" *ngIf="resedntial">
+            <h3>Search Residential Properties</h3>
+            <div>
+
+              <div class="md_box center_box text_center feature_popup padding_top_20">
+                <h5 class="margin_top_bottom_30 main_color">Search {{type1}} Properties</h5>
+                <form [formGroup]="searchform"  #form="ngForm"  class="padding_left_right_20 margin_bottom_50"
+                      style="width:80%; margin:0 10% 0 10% ; ">
+                  <fieldset>
+                    <select class="input select_box" [ngModel]="selectedItem"
+                            formControlName="country">
+                      <option selected disabled value="0" name="country" >Select Country</option>
+                      <option [disabled]="p.coming_soon" [value]=p.country *ngFor="let p of countriesdata">{{p.country}}
+                      </option>
+
+                    </select>
+                  </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+                  <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !searchform.controls.country.valid)">Please Enter Your
+                    Country</p></div>
+                  <fieldset *ngIf="!disablecity">
+                    <select  name="city" class="input select_box" formControlName="city"
+                             [ngModel]="selectedItem">
+                      <option selected disabled value="0">Select City</option>
+                      <option  [value]=p *ngFor="let p of citydata">{{p}}</option>
+
+                    </select>
+                  </fieldset>
+                  <div *ngIf="!disablecity" style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+                    <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !searchform.controls.city.valid)">Please Enter Your City</p>
+                  </div><button class="btn btn_block btn_login" (click)="submitted=true;search(form.valid)">SEARCH</button>
+                </form>
+              </div>
+
+              <!--<p style="margin-bottom: 13px;color: red ;
+                            margin-top: 2px;" [hidden]="!(submitted && !serviceobject.type != undefined)">Please Select What Do You Want To Do</p>-->
+              <ul  class="tabs" style="text-align : center ;margin-bottom: 31% ">
+                <li [class.active]="serviceobject.type == '0'" class="col3"><a (click)="settype('0')">BUY</a></li>
+                <li [class.active]="serviceobject.type == '1'" class="col3"><a (click)="settype('1')">RENT</a></li>
+                <li [class.active]="serviceobject.type == 'sell'" class="col3"><a (click)="sell()">SELL</a></li>
+              </ul>
+
+            </div>
+          </div>
+
+          <!--Commercial from here -->
+          <div class="feature_listing padding_top_10 padding_bottom_60 text_center" *ngIf="commercial">
+            <h3>Search Commercial Properties</h3>
+            <div>
+
+              <div class="md_box center_box text_center feature_popup padding_top_20">
+                <h5 class="margin_top_bottom_30 main_color">Search {{type1}} Properties</h5>
+                <form [formGroup]="searchform"  #form="ngForm"  class="padding_left_right_20 margin_bottom_50"
+                      style="width:80%; margin:0 10% 0 10% ; ">
+                  <fieldset>
+                    <select class="input select_box" [ngModel]="selectedItem"
+                            formControlName="country">
+                      <option selected disabled value="0" name="country" >Select Country</option>
+                      <option [disabled]="p.coming_soon" [value]=p.country *ngFor="let p of countriesdata">{{p.country}}
+                      </option>
+
+                    </select>
+                  </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+                  <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !searchform.controls.country.valid)">Please Enter Your
+                    Country</p></div>
+                  <fieldset *ngIf="!disablecity">
+                    <select  name="city" class="input select_box" formControlName="city"
+                             [ngModel]="selectedItem">
+                      <option selected disabled value="0">Select City</option>
+                      <option  [value]=p *ngFor="let p of citydata">{{p}}</option>
+
+                    </select>
+                  </fieldset>
+                  <div *ngIf="!disablecity" style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+                    <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !searchform.controls.city.valid)">Please Enter Your City</p>
+                  </div><button class="btn btn_block btn_login" (click)="submitted=true;search(form.valid)">SEARCH</button>
+                </form>
+              </div>
+
+              <!--<p style="margin-bottom: 13px;color: red ;
+                            margin-top: 2px;" [hidden]="!(submitted && !serviceobject.type != undefined)">Please Select What Do You Want To Do</p>-->
+              <ul class="tabs" style="text-align : center ;margin-bottom: 31% ">
+                <li [class.active]="serviceobject.type == '0'" class="col3"><a (click)="settype('0')">BUY</a></li>
+                <li [class.active]="serviceobject.type == '1'" class="col3"><a (click)="settype('1')">RENT</a></li>
+                <li [class.active]="serviceobject.type == 'sell'" class="col3"><a (click)="sell()">SELL</a></li>
+              </ul>
+
+            </div>
+          </div>
+        </section>
+      </div>
+      <nav class="nav_tabs">
+        <ul class="left_side">
+          <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+          <li><a (click)="opennav('add')">
+            <img
+              [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+          </li>
+        </ul>
+        <ul class="center_side">
+          <li><a (click)="opensearchpop()"><img src="./assets/images/icons/icons8-features-list-filled-50.png"></a></li>
+        </ul>
+        <ul class="right_side">
+          <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+          <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </main>
+</ion-content>

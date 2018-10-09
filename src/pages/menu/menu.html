@@ -1,0 +1,23 @@
+<ion-content style="top:1%;">
+  <div style="height:10% ; ">
+    <div class="md_box text_center menu padding_top_bottom_40">
+      <img [src]="photo != '' ? 'http://ovza.com/oriented/userdata/Profile/'+userid+'/'+photo : './assets/images/user_img.png'" title="Ovza">
+      <ul>
+        <li><a (click)="opendash()">Dashboard</a></li>
+        <li *ngIf="type == 'agent'"><a (click)="open('listing')">Manage my listings</a></li>
+        <li *ngIf="type == 'agent'"><a (click)="opentrans()">My Transactions</a></li>
+        <li *ngIf="false"><a (click)="opensupport()">Need Any Help?</a></li>
+        <li><a (click)="opencal()" *ngIf="false">Calculators</a></li>
+        <li><a (click)="changepass()">Change Password</a></li>
+        <li><a (click)="logout()">
+          <img style="    width: 14px;
+    height: 17px;
+    margin-bottom: -4px;" src="./assets/images/icons/power.svg">
+          Log Out
+        </a></li>
+        <li><a href="javascript:void(0)"></a></li>
+      </ul>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,78 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center margin_bottom_20">
+      <div class="container">
+        <div class="row">
+						<span class="col-20"><a (click)="this.navCtrl.pop()" class="float_left">
+							<img src="./assets/images/icons/back.svg">
+						</a></span>
+          <span class="text_center col-60"><h4>REQUEST INFO</h4></span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right"><img
+            src="./assets/images/icons/listing-option.svg"></a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="padding_top_bottom_40 ">
+        <div class="edit_profile text_center">
+          <h4 class="form_title">TELL ME MORE ABOUT THIS PORPERTY</h4>
+          <form [formGroup]="data" style="width:80%; margin:0 10% 0 10% ; " role="form" action="#" method="#">
+            <fieldset>
+              <input class="input" type="text" name="" placeholder="NAME" formControlName="name">
+            </fieldset>
+            <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !data.controls.name.valid)">Please Enter Your Name</p>
+            </div>
+            <fieldset>
+              <input class="input" type="text" name="" placeholder="EMAIL" formControlName="email">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !data.controls.email.valid)">Please Enter Your Email</p>
+          </div>
+            <fieldset>
+              <input class="input" type="text" name="" placeholder="SUBJECT" formControlName="subject">
+            </fieldset>
+            <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+              <p style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;"  [hidden]="!(submitted && !data.controls.subject.valid)">Please Enter Subject</p>
+
+            </div>
+
+            <fieldset>
+              <textarea class="input textarea" name="" placeholder="CONTENT" formControlName="content"></textarea>
+              <small class="xs_font">
+                By sending a request you are agreeing to our privacy policy
+              </small>
+            </fieldset>
+            <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !data.controls.content.valid)">Please Enter Content</p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+    </div>
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+          <img
+            [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li></ul>
+      <ul class="center_side">
+        <li><a (click)="submitted=true;send()"><img src="./assets/images/icons/sent-mail.svg"></a></li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>

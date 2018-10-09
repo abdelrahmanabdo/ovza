@@ -1,0 +1,145 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center">
+      <div class="container">
+        <div class="row">
+						<span class="col-20"><a (click)="this.navCtrl.pop()" class="float_left">
+							<img src="./assets/images/icons/back.svg">
+						</a></span>
+          <span class="text_center col-60"><h4>PROPERTY DETAILS</h4></span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right">
+							<img src="./assets/images/icons/listing-option.svg">
+						</a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="property_details margin_top_20 padding_bottom_60 margin_bottom_50">
+        <h4 class="text_center">{{data.property_type == 1 ? "Residential" : "Commercial"}}</h4>
+        <div class="short_info">
+          <ul>
+            <li>
+              <h6>Duplex Property for {{rental_form ? 'rent' : 'sale'}}</h6>
+              <span>{{data.listaddress2}}</span>
+              <h5 *ngIf="data.PriceState==1">$ {{data.list_price}}</h5>
+              <h5 *ngIf="data.PriceState==0">Hidden Price</h5>
+
+            </li>
+            <li>
+              <h6 *ngIf="data.userdata">Added By {{data.userdata ? data.userdata.firm_name : ""}}</h6>
+              <span *ngIf="data.userdata">{{data.userdata ? data.userdata.firm_addr : ""}}</span>
+              <h5 *ngIf="data.is_logged == 1 && userid != data.userid " (click)="openchat(data.userdata.firm_name,data.userdata.id)"><img src="./assets/images/icons/interface.svg"></h5>
+            </li>
+          </ul>
+        </div>
+        <div class="slider">
+          <img
+            [src]="data.images != undefined ? 'https://ovza.com/oriented/userdata/List/'+data.userid+'/'+data.images[0].lid+'/'+data.images[0].list_image  :'./assets/images/splashscreen.png'"
+            title="Ovza">
+        </div>
+        <ul class="main_info text_center">
+          <li>
+            <img style="width:20px;" src="./assets/images/icons/icons8-grid-filled-50.png">
+            <h6>{{data.homesize == undefined || null ? data.lotsize : data.homesize}} {{data.lotsizetype==1 ? 'Sq.ft' : "Acre"}}</h6>
+          </li>
+          <li>
+            <img style="width:20px;" src="./assets/images/icons/icons8-grid-filled-50.png">
+            <h6>{{data.beds}} Beds</h6>
+          </li>
+          <li>
+            <img style="width:20px;" src="./assets/images/icons/icons8-grid-filled-50.png">
+            <h6>{{data.bathrooms}} Bathroom</h6>
+          </li>
+          <li>
+            <img style="width:20px;" src="./assets/images/icons/icons8-grid-filled-50.png">
+            <h6>{{data.listeddate | date :'longDate'}}</h6>
+          </li>
+        </ul>
+        <ul class="overview">
+          <li [class.active]="overview" (click)="overview = true;photos = false;">OVERVIEW</li>
+          <li [class.active]="photos" (click)="overview = false;photos = true;"> PHOTOS</li>
+        </ul>
+
+        <div class="accordion-container" *ngIf="overview">
+          <div class="ac">
+            <a href="#" [class.ac-q]="acq1" [class.ac-q2]="acq3" (click)="acq1 ? acq1=false : acq1=true" (click)="acq3 ? acq3=false : acq3=true" (click)="showdet ? showdet=false : showdet=true">Details</a>
+            <div class="ac-a" [hidden]="!showdet">
+              <p>
+                {{data.aboutlisting}}
+              </p></div>
+          </div>
+
+          <div class="ac">
+            <a  [class.ac-q]="acq" [class.ac-q2]="acq2" (click)="generalinfo ? generalinfo=false : generalinfo=true;acq ? acq=false : acq=true;acq2 ? acq2=false : acq2=true" >General
+              Informations</a>
+            <div class="ac-a" [hidden]="!generalinfo">
+
+              <div class="prop_info">
+                <ul>
+                  <li>
+                    <p><img src="./assets/images/iconcs/007-bed.svg"><span>Beds</span></p>
+                    <h6>{{data.beds}} Beds</h6>
+                  </li>
+                  <li>
+                    <p><img src="./assets/images/icons/002-cube-with-arrows.svg"><span>Property Size</span></p>
+                    <h6>{{data.homesize == undefined || null ? 'N/A' :data.homesize }} {{data.lotsizetype==1 ? 'Sq.ft' : "Acre"}}</h6>
+
+                  </li>
+                  <li>
+                    <p><img src="./assets/images/icons/006-tag.svg"><span>Price</span></p>
+                    <h6 *ngIf="data.PriceState==1">$ {{data.list_price}}</h6>
+                    <h6 *ngIf="data.PriceState==0">Hidden Price</h6>
+                  </li>
+                  <li *ngIf="type=='agent'">
+                    <p><img src="./assets/images/icons/003-black.svg"><span>Status</span></p>
+                    <h6 *ngIf="data.list_status==2">Inactive</h6>
+                    <h6 *ngIf="data.list_status==-1">Incomplete</h6>
+                    <h6 *ngIf="data.list_status==1">Active</h6>
+                  </li>
+                  <li>
+                    <p><img src="./assets/images/icons/005-bathtub.svg"><span>Bathrooms</span></p>
+                    <h6>{{data.bathrooms}} Bathrooms</h6>
+                  </li>
+                  <li>
+                    <p><img src="./assets/images/icons/001-dimension.svg"><span>Lot Size</span></p>
+                    <h6>{{data.lotsize == undefined || null ? 'N/A' : data.lotsize}} {{data.lotsizetype==1 ? 'Sq.ft' : "Acre"}}</h6>
+
+                  </li>
+                  <li>
+                    <p><img src="./assets/images/icons/004-calendar.svg"><span>Year Built</span></p>
+                    <h6>{{data.listeddate | date :'yyyy'}}</h6>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div *ngIf="photos && data.images != undefined">
+          <img *ngFor="let e of data.images"
+               [src]="'https://ovza.com/oriented/userdata/List/'+data.userid+'/'+e.lid+'/'+e.list_image">
+        </div>
+        <div *ngIf="photos && data.images == undefined">
+          <p style="text-align: center">No Photos To Show</p>
+        </div>
+      </section>
+    </div>
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+          <img
+            [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li> </ul>
+      <ul class="center_side">
+        <li><a (click)="type != 'agent' ? reqinfo(data) : this.navCtrl.pop()"><img  [src]="type == 'agent' ? './assets/images/icons/back.svg' : './assets/images/icons/down.png'"></a>
+        </li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>

@@ -1,0 +1,72 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center margin_bottom_40">
+      <div class="container">
+        <div class="row">
+						<span class="col-20"><a href="javascript:void(0)" class="float_left">
+
+						</a></span>
+          <span class="text_center col-60"><h4>MANAGE MY ACCOUNT</h4></span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right">
+							<img src="./assets/images/icons/listing-option.svg">
+						</a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="padding_top_10 padding_bottom_40" *ngIf="data">
+        <div class="edit_profile">
+          <form [formGroup]="" style="width : 80% ;     margin: 0 10% 0 10%;" role="form" action="#" method="#">
+
+            <div class="user_img text_center">
+              <img [src]="data.logo != data.logo ? 'http://ovza.com/oriented/userdata/Agencylogo/'+data.userid+'/'+data.logo : './assets/images/user_img.png'" title="Ovza">
+            </div>
+            <h4 class="input_title margin_left_15">NAME</h4>
+            <fieldset>
+              <input class="input" type="text" name="" value="{{data.firm_name}}" disabled>
+            </fieldset>
+            <h4 class="input_title margin_left_15">COMPANY NAME</h4>
+            <fieldset>
+              <input class="input" type="text" name="" value="{{data.firm_addr}}" disabled>
+            </fieldset>
+            <h4 class="input_title margin_left_15">STATUS</h4>
+            <fieldset>
+              <!--<select class="input select_box" disabled>-->
+                <!--<option selected="selected" value="0">ACTIVE</option>-->
+                <!--<option value="1">1</option>-->
+                <!--<option value="2">2</option>-->
+                <!--<option value="3">3</option>-->
+              <!--</select>-->
+              <input class="input" type="text" name="" value="Active" disabled>
+
+            </fieldset>
+            <fieldset>
+              <select class="input select_box" (change)="dosomething($event.target.value)">
+                <option selected="selected" value="0">ACTIONS</option>
+                <option value="1">View Profile</option>
+                <option value="2">Edit Profile</option>
+                <option value="3">Deactivate My Account</option>
+                <option value="4">Change My Password</option>
+              </select>
+            </fieldset>
+          </form>
+        </div>
+      </section>
+    </div>
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+          <img
+            [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li></ul>
+      <ul class="center_side">
+        <li><a (click)="this.navCtrl.pop()"><img src="./assets/images/icons/back.svg"></a></li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a href="javascript:void(0)"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>

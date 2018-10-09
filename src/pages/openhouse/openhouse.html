@@ -1,0 +1,68 @@
+<ion-content>
+
+  <div class="wrapper">
+    <header class="header text_center">
+      <div class="container">
+        <div class="row">
+          <span class="col-20"><a (click)="this.navCtrl.pop()" class="float_left"><img
+            src="./assets/images/icons/back.svg"></a></span>
+          <span class="text_center col-60"><h4>OPEN HOUSE</h4></span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right"><img
+            src="./assets/images/icons/listing-option.svg"></a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="margin_top_30">
+        <div class="open_house text_center max_width_400 margin_auto margin_bottom_40">
+          <h5>OPEN DATE</h5>
+          <my-date-picker style="margin-left: 12%"  [options]="myDatePickerOptions"
+                          (dateChanged)="onDateChanged($event)"></my-date-picker>
+          <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;"><p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !(date!=undefined))">Please Enter Property Type</p>
+          </div>
+        </div>
+        <form role="form" action="#" method="#" name="openhouse" style="width:80%; margin:0 10% 0 10% ; ">
+          <fieldset class="input select_box">
+
+            <ion-datetime placeholder="Start time" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="timeStarts"
+                          name="timeStarts"></ion-datetime>
+
+          </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+          <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !(timeStarts!=undefined))">Please Enter Property Type</p>
+        </div>
+          <fieldset class="input select_box">
+
+            <ion-datetime placeholder="End time" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="timeend"
+                          name="timeend"></ion-datetime>
+
+          </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+          <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !(timeend!=undefined))">Please Enter Property Type</p>
+        </div>
+        </form>
+
+
+      </section>
+    </div>
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+          <img
+            [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li> </ul>
+      <ul class="center_side">
+        <li><a (click)="room_available();submitted=true"><img src="./assets/images/icons/next.svg"></a></li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>

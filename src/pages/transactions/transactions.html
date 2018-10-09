@@ -1,0 +1,53 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center">
+      <div class="container">
+        <div class="row">
+          <span class="col-20"><a (click)="this.navCtrl.pop()" class="float_left"><img
+            src="./assets/images/icons/back.svg"></a></span>
+          <span class="text_center col-60"><h4>TRANSACTIONS</h4></span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right"><img
+            src="./assets/images/icons/listing-option.svg"></a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="transactions margin_top_70">
+        <form style="width : 80% ;     margin: 0 10% 0 10%;" role="form" action="#" method="#">
+          <!--<fieldset>-->
+            <!--<select class="input select_box">-->
+              <!--<option selected="selected" value="0">ALL TRANSACTIONS</option>-->
+
+            <!--</select>-->
+          <!--</fieldset>-->
+          <fieldset>
+            <select class="input select_box">
+              <option selected="selected" value="0">Payment Method</option>
+              <option value="1">Paypal</option>
+              <option value="2">Credit/Card</option>
+
+            </select>
+          </fieldset>
+        </form>
+        <div class="no_result text_center">
+          <h4 class="margin_top_70">No results yet</h4>
+        </div>
+      </section>
+    </div>
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+          <img
+            [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li></ul>
+      <ul class="center_side">
+        <li><a (click)="this.navCtrl.pop()"><img src="./assets/images/icons/back.svg"></a></li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>

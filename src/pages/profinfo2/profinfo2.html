@@ -1,0 +1,84 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center margin_bottom_20">
+      <h4>PROFESSIONAL INFORMATION</h4>
+    </header>
+    <div class="container">
+      <section class="padding_top_bottom_20">
+        <div class="edit_profile edit_profile_2 text_center">
+          <form [formGroup]="profinfo" style="width:80%; margin:0 10% 0 10% ; " role="form" action="#" method="#">
+            <fieldset>
+              <textarea class="input textarea" name="" placeholder="ABOUT" formControlName="about"></textarea>
+            </fieldset>
+            <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;"><p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !profinfo.controls.about.valid)">Please Enter Detailes About
+              You</p></div>
+
+            <fieldset>
+              <input class="input" type="text" name="" placeholder="WEBSITE" formControlName="website">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !profinfo.controls.website.valid)">Please Enter Your Name</p>
+          </div>
+            <fieldset>
+              <input class="input" type="text" name="" placeholder="BLOG" formControlName="blog">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !profinfo.controls.blog.valid)">Please Enter Your Name</p>
+          </div>
+            <fieldset>
+              <input class="input" type="text" name="" placeholder="YOUTUBE LINK" formControlName="youtube">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !profinfo.controls.youtube.valid)">Please Enter Your Name</p>
+          </div>
+            <fieldset>
+              <input class="input" type="text" name="" placeholder="FACEBOOK LINK" formControlName="facebook">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !profinfo.controls.facebook.valid)">Please Enter Your Name</p>
+          </div>
+            <fieldset>
+              <input class="input" type="text" name="" placeholder="TWITTER LINK" formControlName="twitter">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !profinfo.controls.twitter.valid)">Please Enter Your Name</p>
+          </div>
+            <fieldset>
+              <input class="input" type="text" name="" placeholder="GOOGLE LINK" formControlName="google">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !profinfo.controls.google.valid)">Please Enter Your Name</p>
+          </div>
+            <fieldset>
+              <select class="input select_box" formControlName="lang">
+                <option selected="selected" value="0">LANGUAGES</option>
+                <option value="1">Arabic</option>
+                <option value="2">English</option>
+                <option value="3">Frinsh</option>
+                <option value="4">Spanish</option>
+                <option value="5">Persia</option>
+              </select>
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !profinfo.controls.lang.valid)">Please Enter Your Name</p>
+          </div>
+            <div class="actions">
+              <button class="btn btn_block btn_login" (click)="submitted=true;save()">
+                SAVE DETAILS
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+</ion-content>

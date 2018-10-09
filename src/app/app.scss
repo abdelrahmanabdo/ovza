@@ -1,0 +1,59 @@
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+  color: green !important;
+}
+
+.regpop {
+  .popover-content {
+    border-radius: 10% !important;
+    width: 80% !important;
+    top: 24% !important;
+    left: 10% !important;
+    right: 10% !important;
+  }
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.shrppop {
+  .popover-content {
+    border-radius: 0px !important;
+    width: 70% !important;
+    top: 35% !important;
+    left: 15% !important;
+    right: 15% !important;
+  }
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.menupop {
+  top: 57px;
+  .popover-content {
+    border-radius: 0px !important;
+    border-top: 2px solid #5aba53;
+    top: 0px !important;
+    left: 10% !important;
+    right: 10% !important;
+    width: 80% !important;
+  }
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.paynowpop {
+  .popover-content {
+    border-radius: 0px !important;
+    width: 66% !important;
+    top: 27% !important;
+    left: 18% !important;
+    right: 10% !important;
+
+  }
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+$range-md-hit-width: 100px;
+$range-md-hit-width : 150px ;
+$range-md-knob-width: 100px;
+$datetime-md-padding-top:6px ;
+$datetime-md-padding-start : 113px ;
+$datetime-ios-padding-top : 6px ;
+$datetime-ios-padding-start : 113px ;

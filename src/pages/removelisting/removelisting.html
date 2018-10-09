@@ -1,0 +1,63 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center">
+      <div class="container">
+        <div class="row">
+          <span class="col-20"><a (click)="this.navCtrl.pop()" class="float_left"><img
+            src="./assets/images/icons/back.svg"></a></span>
+          <span class="text_center col-60"><h4>REMOVE LISTING</h4></span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right"><img
+            src="./assets/images/icons/listing-option.svg"></a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="centered text_center">
+        <div class="margin_top_40">
+          <div class="margin_bottom_40 margin_top_30">
+            <div class="property_box text_center">
+              <img src="assets/images/property_item.jpg" title="Ovza">
+              <h5>House Property for sale</h5>
+              <h5>12 Chastas, Paris, France 12-2121</h5>
+              <h5>$2121 / 5,675 sq.ft</h5>
+            </div>
+          </div>
+          <div class="margin_top_40 text_center max_width_400 margin_auto">
+            <form style="width:80%; margin:0 10% 0 10% ; " role="form" action="#" method="#">
+              <h4 class="input_title">PROPERTY STATUS</h4>
+              <fieldset>
+                <select class="input select_box" (change)="dosomething($event.target.value)">
+                  <option selected="selected" value="0">
+                    NO LONGER AVAILABLE FOR SALE
+                  </option>
+                  <option value="1">SOLD</option>
+
+                </select>
+              </fieldset>
+              <fieldset *ngIf="showinput">
+                <input class="input" type="text">
+                <input class="input" type="text">
+              </fieldset>
+
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+          <img
+            [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li></ul>
+      <ul class="center_side">
+        <li><a (click)="remove()"><img src="./assets/images/icons/question.svg"></a></li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>

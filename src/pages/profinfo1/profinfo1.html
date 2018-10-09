@@ -1,0 +1,73 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center margin_bottom_40">
+      <h4>PROFESSIONAL INFORMATION</h4>
+    </header>
+    <div class="container">
+      <section class="padding_top_bottom_20">
+        <div class="edit_profile edit_profile_2 text_center">
+          <form style="width : 80% ;     margin: 0 10% 0 10%;" [formGroup]="profinfo" role="form" action="#" method="#">
+            <div  (click)="presentActionSheet()" class="user_img">
+              <img [src]="lastImage === null? './assets/images/user_img.png' : pathForImage(lastImage)"  name="avtar" title="Ovza App">              
+              <h4>EDIT LOGO</h4>
+            </div>
+            <fieldset>
+              <label><img src="./assets/images/icons/man-user.svg"></label>
+              <input class="input has_icon" type="text" name="" placeholder="BUSINESS NAME"
+                     formControlName="businessname">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted2 && !profinfo.controls.businessname.valid)">Please Enter Business
+              Name</p>
+          </div>
+            <fieldset>
+              <label><img src="./assets/images/icons/locate-places.svg"></label>
+              <input class="input has_icon" type="text" name="" placeholder="BUSINESS ADDRESS"
+                     formControlName="businessaddress">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted2 && !profinfo.controls.businessaddress.valid)">Please Enter
+              Business Address </p>
+          </div>
+            <fieldset>
+              <label><img src="./assets/images/icons/phone-receiver.svg"></label>
+              <input class="input has_icon" type="number" name="" placeholder="PHONE NUMBER"
+                     formControlName="phonenumber">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted2 && !profinfo.controls.phonenumber.valid)">Please Enter Phone
+              Number</p>
+          </div>
+            <fieldset>
+              <label><img src="./assets/images/icons/gps.svg"></label>
+              <input class="input has_icon" type="text" name="" placeholder="POST CODE" formControlName="postalcode">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted2 && !profinfo.controls.postalcode.valid)">Please Enter Postal
+              Code</p>
+          </div>
+            <fieldset>
+              <label><img src="./assets/images/icons/gps.svg"></label>
+              <input #input class="input has_icon" type="text" name="" placeholder="BUSINESS LOCATIONS (CITY)"
+                     formControlName="businesslocation">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted2 && !profinfo.controls.businesslocation.valid)">Please Enter a
+              Valid Business Location City</p>
+          </div>
+            <div class="actions">
+              <button class="btn btn_block btn_login" (click)="submitted2=true;save()">
+                SAVE DETAILS
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+</ion-content>

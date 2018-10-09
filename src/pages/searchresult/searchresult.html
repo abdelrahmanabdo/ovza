@@ -1,0 +1,116 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center">
+      <div class="container">
+        <div class="row">
+          <span class="col-20"><a (click)="this.navCtrl.pop();" class="float_left"><img
+            src="./assets/images/icons/back.svg"></a></span>
+          <span class="text_center col-60"><h4>SEARCH RESULTS</h4></span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right"><img
+            src="./assets/images/icons/listing-option.svg"></a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="centered search">
+
+        <div class="margin_top_20" style="width:80% ; margin-left:10% ; margin-right:10%" >
+          <p class="margin_bottom_20 text_center">Total {{res.length}} Homes Available in {{city}}</p>
+          <form style="width: 129%;
+    margin-left: -14%;">
+            <!--<fieldset>-->
+              <!--<select class="input select_box">-->
+                <!--<option selected="selected" value="0">SORT BY FEATURED</option>-->
+                <!--<option value="1">1</option>-->
+                <!--<option value="2">2</option>-->
+                <!--<option value="3">3</option>-->
+              <!--</select>-->
+            <!--</fieldset>-->
+            <ion-item>
+              <ion-range min="1" max={{maxprice}} name="slider" dualKnobs="true" pin="true" [(ngModel)]="structure"
+                         (ionChange)="onChange($event)" color="dark" debounce="500">
+                <ion-label range-left>1</ion-label>
+                <ion-label range-right>{{maxprice}}</ion-label>
+              </ion-range>
+            </ion-item>
+          </form>
+          <div class="margin_top_20" style="    text-align: center;width:80% ; margin-left:10% ; margin-right:10%" *ngIf="!res.length"><p>No Results</p></div>
+          <!-- <div class="range">
+            <div class="slider-container">
+              <input type="text" id="slider" class="slider" />
+          </div>
+          </div> -->
+          <div *ngIf="res.length">
+          <div class="property_box text_center" *ngFor="let p of res;let ayhaga = last" (click)="openprop(p)">
+            <div *ngIf="p.images != undefined">
+              <img
+                [src]="'https://ovza.com/oriented/userdata/List/'+p.userid+'/'+p.images[0].lid+'/'+p.images[0].list_image">
+
+            </div>
+            <div *ngIf="p.images == undefined">
+              <img style="height: 387px;" src="./assets/images/splashscreen.png">
+
+            </div>
+            <ul>
+              <li>
+                <div class="left_side">
+                  <address>{{p.listaddress1}}</address>
+                </div>
+                <div class="right_side">
+                  {{p.homesize == undefined || null ? p.lotsize : p.homesize}} Sq.ft
+                </div>
+              </li>
+              <li>
+                <div  *ngIf="false" class="left_side">
+                  <time>Open: 08/29/2017-9:00 am to 3:00 pm</time>
+                </div>
+                <div class="right_side">
+                  <span style="float: right"> <p style=" float: right">{{p.beds}}</p><img
+                    style="height :22px ; margin-right:9px ; width:28px;"
+                    src="./assets/images/icons/bed_gray.svg"></span>
+                  <span style="float: right"> <p style=" float: right">{{p.bathrooms}}</p><img
+                    style="height :22px ;margin-right:9px ;width:28px;"
+                    src="./assets/images/icons/bathtub_gray.svg"></span>
+                </div>
+              </li>
+              <li class="main_color" *ngIf="p.PriceState==1">{{p.list_price}} $</li>
+              <li class="main_color" *ngIf="p.PriceState==0">Hidden Price</li>
+
+            </ul>
+
+          </div>
+
+
+        </div>
+        </div>
+        <section   style="
+  height: 40%;
+  width: 80%;
+    margin-top: -53px;
+    left: 10%;
+    margin-bottom:102px;
+    right: 10%;">
+          <div style="height:100%; width: 100%" #map id="map_canvas"></div>
+
+        </section>
+      </section>
+
+    </div>
+
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+          <img
+            [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li></ul>
+      <ul class="center_side">
+        <li><a (click)="this.navCtrl.pop()"><img src="./assets/images/icons/back.svg"></a></li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>

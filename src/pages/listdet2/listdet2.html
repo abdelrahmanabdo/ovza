@@ -1,0 +1,125 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center margin_bottom_40">
+      <div class="container">
+        <div class="row">
+          <span class="col-20"><a (click)="this.navCtrl.pop()" class="float_left"><img
+            src="./assets/images/icons/back.svg"></a></span>
+          <span class="text_center col-60"><h4>LIST DETAILS</h4></span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right"><img
+            src="./assets/images/icons/listing-option.svg"></a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="padding_top_10 padding_bottom_40">
+        <div class="list_detail text_center">
+          <form style="width : 80% ;     margin: 0 10% 0 10%;" [formGroup]="listdata">
+            <h4 class="input_title">BEDROOMS</h4>
+            <fieldset>
+              <select class="input select_box" formControlName="bedrooms">
+                <option selected disbaled value="null">STUDIO</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10+</option>
+              </select>
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.bedrooms.valid)">Please Enter Number Of Bed
+              Rooms</p>
+          </div>
+            <h4 class="input_title">BATHROOMS</h4>
+            <fieldset>
+              <select class="input select_box" formControlName="bathrooms">
+                <option selected disabled value="null">Bathrooms</option>
+                <option value="1">1</option>
+                <option value="1.5">1.5</option>
+                <option value="2">2</option>
+                <option value="2.5">2.5</option>
+                <option value="3">3</option>
+                <option value="3.5">3.5</option>
+                <option value="4">4</option>
+                <option value="4.5">4.5</option>
+                <option value="5">5</option>
+                <option value="5.5">5.5</option>
+                <option value="6">6</option>
+                <option value="6.5">6.5</option>
+                <option value="7">7</option>
+
+              </select>
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.bathrooms.valid)">Please Enter Number Of
+              Bathrooms</p>
+          </div>
+            <!--<fieldset>-->
+              <!--<select class="input select_box" formControlName="archmodel">-->
+                <!--<option selected disabled value="null">ARCHITECTURAL MODEL</option>-->
+                <!--<option value="1">1</option>-->
+                <!--<option value="2">2</option>-->
+                <!--<option value="3">3</option>-->
+              <!--</select>-->
+            <!--</fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;-->
+              <!--margin-top: 2px;">-->
+            <!--<p style="margin-bottom: 13px;color: red ;-->
+              <!--margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.archmodel.valid)">Please Enter Archmodel</p>-->
+          <!--</div>-->
+            <fieldset>
+              <input class="input" type="number" name="" placeholder="Year Built In" formControlName="yearbuilt">
+            </fieldset><div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.yearbuilt.valid)">Please Enter Year
+              Built</p>
+          </div>
+            <fieldset>
+              <input class="input" type="number" name="" placeholder="Modification Made In" formControlName="modmadein">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.modmadein.valid)">Please Enter Modification
+              Made Date</p>
+          </div>
+            <fieldset>
+              <input class="input" type="url" name="" placeholder="VIDEO URL" formControlName="videourl">
+            </fieldset>
+
+            <fieldset>
+              <textarea class="input textarea" name="" placeholder="ABOUT THIS PROPERTY"
+                        formControlName="about"></textarea>
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.about.valid)">Please Enter More Details
+              About Property</p>
+          </div>
+          </form>
+        </div>
+      </section>
+    </div>
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+          <img
+            [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li> </ul>
+      <ul class="center_side">
+        <li><a (click)="openhouse();submitted=true"><img src="./assets/images/icons/sent-mail.svg"></a></li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>

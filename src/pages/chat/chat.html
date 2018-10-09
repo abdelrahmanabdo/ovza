@@ -1,0 +1,98 @@
+
+
+<ion-content>
+    <div class="wrapper">
+        <div [class.ovrly]="chats"></div>
+        <div class="chat_2">
+          <section class="centered">
+              <div class="padding_top_10 margin_bottom_30">
+                <ul class="tabs">
+                  <li [class.active]="ovza">
+                    <a (click)="open('ovza')">OVZA</a>
+                  </li>
+                  <li [class.active]="chats">
+                    <a (click)="open('agents')">AGENTS</a>
+                  </li>
+                </ul>
+              </div>
+            <!--agents from here -->
+              <div [hidden]="ovza">
+                <div *ngFor="let p of res">
+                  <div *ngIf="userid != p.userid">
+
+                  <div class="chat_row" (click)="openchat(p)">
+                    <div class="chat_img">
+                      <img src="./assets/images/user_img.png" title="Ovza">
+                    </div>
+                    <div class="chat_context">
+                      <div class="info">
+                        <h5>{{p.firstname }}  {{ p.lastname}}</h5>
+                        <!-- <span class="counter">4</span> -->
+                      </div>
+                      <!-- <div class="prgrph">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+                <!-- <div *ngIf="">
+                  <div class="chat_row" >
+                      <p3 class="info">There are no online agents</p3>
+                  </div>
+                </div> -->
+          <!-- //Chat Row -->
+                  </div>
+              </div>
+
+              <div class="edit_profile padding_top_40" [hidden]="chats">
+                               <form style="width:80% ; margin:0 10% 0 10%" [formGroup]="email">
+                                 <fieldset>
+                                   <input class="input" type="text" name="" placeholder="FULL NAME" formControlName= "name" [(ngModel)]="this.sendContact.name" >
+                                 </fieldset>
+                                  <p style="margin-bottom: 13px;color: red ;
+                           margin-top: 2px;" [hidden]="!(submitted && !email.controls.name.valid)">Please Enter Your Name</p>
+                                 <fieldset>
+                                   <input class="input" type="text" name="" placeholder="EMAIL" formControlName= "email" [(ngModel)]="this.sendContact.email">
+                                 </fieldset>
+                                  <p style="margin-bottom: 13px;color: red ;
+                           margin-top: 2px;" [hidden]="!(submitted && !email.controls.email.valid)">Invalid Email</p>
+                                 <fieldset>
+                                   <textarea class="input textarea" name="" placeholder="MESSAGE" formControlName= "content" [(ngModel)]="this.sendContact.message"></textarea>
+                                 </fieldset>
+                                  <p style="margin-bottom: 13px;color: red ;
+                           margin-top: 2px;" [hidden]="!(submitted && !email.controls.content.valid)">Please Enter Your Message</p>
+                                 <div class="captch margin_top_30">
+                                   <div class="account_type captch_side_check float_left">
+                                       <div class="radio_input margin_top_5">
+                                         <input type="checkbox" name="" id="checkbox_one" >
+                                         <label for="checkbox_one">I’m not a robot</label>
+                                       </div>
+                                   </div>
+                                   <div class="float_right captch_side_title text_center">
+                                     <img src="./assets/images/recaptch.png" title="Ovza">
+                                     <h6>reCAPTCHA</h6>
+                                     <span>Privacy - Terms</span>
+                                   </div>
+                                 </div>
+                               </form>
+                             </div>
+
+
+
+          </section>
+        </div>
+        <nav class="nav_tabs">
+          <ul class="left_side">
+            <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+            <li><a (click)="opennav('add')"><img [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/next.svg' "></a></li>
+          </ul>
+          <ul class="center_side">
+            <li><a (click)="submitted=true;" (click)="ovza_contact()"><img src="./assets/images/icons/next.svg"></a></li>
+          </ul>
+          <ul class="right_side">
+            <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+            <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+          </ul>
+        </nav>
+      </div>
+</ion-content>

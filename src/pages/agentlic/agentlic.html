@@ -1,0 +1,49 @@
+<ion-content>
+  <div class="wrapper">
+    <div class="fixed_btn">
+      <a><img (click)="addmore()" style="width: 20px" src="./assets/images/icons/add-plus-button.svg"></a>
+    </div>
+    <header class="header text_center margin_bottom_40">
+      <div class="container">
+        <div class="row">
+          <span class="col-20"><a (click)="this.navCtrl.pop()" class="float_left"><img
+            src="./assets/images/icons/back.svg"></a></span>
+          <span class="text_center col-60"><h4>AGENT LICENSE</h4></span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right"><img
+            src="./assets/images/icons/listing-option.svg"></a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="padding_top_bottom_40">
+        <div class="edit_profile text_center">
+          <form [formGroup]="licinfo" style="width:80%; margin:0 10% 0 10% ; " role="form" action="#" method="#">
+            <fieldset>
+              <input class="input" type="text" name="" placeholder="AGENT LICENSE" formControlName="agentlic">
+            </fieldset>
+            <fieldset>
+              <textarea class="input textarea" name="" placeholder="LICENSE INFORMATION"
+                        formControlName="description"></textarea>
+            </fieldset>
+          </form>
+        </div>
+
+      </section>
+    </div>
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+          <img
+            [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li> </ul>
+      <ul class="center_side">
+        <li><a (click)="openhome()"><img src="./assets/images/icons/next.svg"></a></li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>

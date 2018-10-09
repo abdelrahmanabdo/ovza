@@ -1,0 +1,56 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center">
+      <div class="container">
+        <div class="row">
+						<span class="col-20"><a (click)="this.navCtrl.pop()" class="float_left">
+							<img src="./assets/images/icons/back.svg">
+						</a></span>
+          <span class="text_center col-60"><h4>FORGOT PASSWORD</h4></span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right">
+							<img src="./assets/images/icons/listing-option.svg">
+						</a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="centered text_center">
+        <div class="context">
+          <h3 class="main_color margin_bottom_30">REST YOUR PASSWORD</h3>
+          <p>
+            It’s alright if you’ve forgotten your password. <br>Just type your email in below and press ‘request password reset’ , and <br> we will send you a reset link. </p>
+          <form [formGroup]="email" style="width : 80% ;     margin: 0 10% 0 10%;" role="form" action="#" method="#">
+            <fieldset>
+              <label><img src="./assets/images/icons/envelope.svg"></label>
+              <input class="input has_icon" type="text" name="email" placeholder="EMAIL" formControlName="email1">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted2 && !email.controls.email1.valid)">Invalid Email</p>
+          </div>
+            <div class="actions">
+              <button class="btn btn_block btn_login" (click)="send();submitted2=true;">
+                REQUEST PASSWORD RESET
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+          <img
+            [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li> </ul>
+      <ul class="center_side">
+        <li><a (click)="this.navCtrl.pop()"><img src="./assets/images/icons/back.svg"></a></li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>

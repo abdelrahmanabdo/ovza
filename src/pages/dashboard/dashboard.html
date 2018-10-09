@@ -1,0 +1,72 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center">
+      <div class="container">
+        <div class="row">
+          <span class="col-20"><a (click)="this.navCtrl.pop()" class="float_left"><img
+            src="./assets/images/icons/back.svg"></a></span>
+          <span class="text_center col-60"><h4><img style="width :10px" src="./assets/images/icons/dashboard.svg">  DASHBOARD</h4></span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right"><img
+            src="./assets/images/icons/listing-option.svg"></a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container" *ngIf="data">
+      <section class="centered text_center dashboard">
+        <div class="margin_top_40">
+          <img [src]="data.prof_image != '' ? 'http://ovza.com/oriented/userdata/Profile/'+data.id+'/'+data.prof_image : './assets/images/user_img.png'" title="Ovza">
+          <h5 class="main_color">First Name : {{data.firstname}}</h5>
+          <h5>Last Name : {{data.lastname}}</h5>
+          <h5>Member Since: {{data.reg_time | date:'mediumDate'}}</h5>
+          <h5>Email Address : {{data.email}}</h5>
+        
+
+        </div>
+        <div *ngIf="type=='agent'" class="statistics max_width_400 margin_auto text_center margin_top_bottom_40"
+             style="margin-bottom: 33%">
+          <ul>
+            <li>
+              <h5>{{data2.total}}</h5>
+              <h5>Total Listings</h5>
+            </li>
+            <li>
+              <h5>{{data2.active}}</h5>
+              <h5>Total Active Listings</h5>
+            </li>
+            <li>
+              <h5>{{data2.sold}}</h5>
+              <h5>Total Sold Listings</h5>
+            </li>
+          </ul>
+        </div>
+        <form *ngIf="type=='user'"  style="width:80%; margin:0 10% 0 10% ; ">
+          <fieldset>
+            <select class="input select_box" (change)="dosomething($event.target.value)">
+              <option selected="selected" value="0">ACTIONS</option>
+              <option value="1">View Profile</option>
+              <option value="2">Edit Profile</option>
+              <option value="3">Deactivate My Account</option>
+              <option value="4">Change My Password</option>
+            </select>
+          </fieldset>
+        </form>
+
+      </section>
+    </div>
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+          <img
+            [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li> </ul>
+      <ul class="center_side">
+        <li><a (click)="opennotif()"><img src="./assets/images/icons/icons8-globe-earth(1).png"></a></li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>

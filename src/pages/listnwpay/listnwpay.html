@@ -1,0 +1,97 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center">
+      <div class="container">
+        <div class="row">
+          <span class="col-20"><a (click)="this.navCtrl.pop()" class="float_left"><img src="./assets/images/icons/back.svg"></a></span>
+          <span class="text_center col-60">
+            <h4>LIST NOW PAYMENT </h4>
+          </span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right"><img src="./assets/images/icons/listing-option.svg"></a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="centered text_center">
+        <div  style="margin-top:35%;">
+          <form [formGroup]="payment_form" style="width:80%; margin:0 10% 0 10% ; " role="form" action="#" method="#">
+            <ion-item>
+              <ion-label>Card Holder Name </ion-label>
+              <ion-input type="text"  placeholder="Card holder name" formControlName="cardHolderName"></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.cardHolderName">
+                <div class="error-message" *ngIf="payment_form.get('cardHolderName').hasError(validation.type) && (payment_form.get('cardHolderName').dirty)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+            <ion-item>
+              <ion-label>Card Number </ion-label>
+              <ion-input type="text" placeholder="Card Number" formControlName="cardNumber"></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.cardNumber">
+                <div class="error-message" *ngIf="payment_form.get('cardNumber').hasError(validation.type) && (payment_form.get('cardNumber').dirty)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+            <ion-item>
+              <ion-label>Expiration Date</ion-label>
+              <ion-input type="number" placeholder="Year" formControlName="expiryDateMonth"></ion-input>
+              <ion-input type="number" placeholder="Month" formControlName="expiryDateYear"></ion-input>
+
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.expiryDateMonth">
+                <div class="error-message" *ngIf="payment_form.get('expiryDateMonth').hasError(validation.type) && (payment_form.get('expiryDateMonth').dirty)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.expiryDateYear">
+                <div class="error-message" *ngIf="payment_form.get('expiryDateYear').hasError(validation.type) && (payment_form.get('expiryDateYear').dirty)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+            <ion-item>
+              <ion-label>Card Verification Number </ion-label>
+              <ion-input type="number" placeholder="CVV" formControlName="CVV"></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.CVV">
+                <div class="error-message" *ngIf="payment_form.get('CVV').hasError(validation.type) && (payment_form.get('CVV').dirty)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+<!-- 
+             <ion-item>
+              <button ion-button round outline type="submit" [disabled]="!payment_form" (tap)="payByPayfort(payment_form.value)">pay</button>
+            </ion-item> -->
+          </form>
+          <!-- <p>If youu select yearly package,<br> you will get discount of 20%.</p>
+          <h4 class="price">AMOUNT <br> {{value}}$</h4> -->
+        </div>
+      </section>
+    </div>
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+            <img [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li>
+      </ul>
+      <ul class="center_side">
+        <li><button class="payButton" (click)="payByPayfort(payment_form.value)" >Pay</button></li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>

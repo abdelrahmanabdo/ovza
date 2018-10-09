@@ -1,0 +1,58 @@
+
+<ion-content>
+    <div class="wrapper">
+        <div class="ovrly" style="position:fixed ; "></div>
+        <header class="header text_center margin_bottom_40">
+          <div class="container">
+            <div class="row">
+              <span class="col-20"><a (click)="this.navCtrl.pop({animate:false})" class="float_left"><img src="./assets/images/icons/back.svg"></a></span>
+              <span class="text_center col-60"><h4>{{firm_name}}</h4></span>
+              <span class="col-20"><a (click)="openmenu()" class="float_right"><img src="./assets/images/icons/listing-option.svg"></a></span>
+            </div>
+          </div>
+        </header>
+        <div class="container">
+          <div class="chatbox">
+            <section class="centered" style="margin-bottom: 50px">
+                <div   style="text-align:center" class="padding_top_30 margin_bottom_30">
+                  <div>
+                  <div  *ngFor="let msg of messages" >
+                  <div class="chat_text sender" *ngIf="msg.sender != user">
+                    <span class="chat_active"></span>
+
+                    <img src="./assets/images/user_img.png" title="Ovza">
+                    <article ><p>{{msg.message}}</p></article>
+
+                  </div> <!-- //Sender -->
+                  <div class="chat_text me" *ngIf="msg.sender == user">
+                    
+                    <p>{{msg.message}}</p>
+                  </div>
+
+
+                    </div>
+                  <fieldset class="fieldset_box_input">
+                    <input class="input_chat" name="" [(ngModel)]="message" [ngModelOptions]="{standalone:true}"  placeholder="Enter Your Message Here" #input1>
+                       </fieldset>
+                </div>
+
+                </div>
+
+            </section>
+          </div>
+        </div>
+        <nav class="nav_tabs">
+          <ul class="left_side">
+            <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+            <li><a (click)="opennav('add')"><img [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/next.svg' "></a></li>
+          </ul>
+          <ul class="center_side" (click)="sendChatMessage(message)" >
+            <li><a href="javascript:void(0)"><img src="./assets/images/icons/sent-mail.svg"></a></li>
+          </ul>
+          <ul class="right_side">
+            <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+            <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+          </ul>
+        </nav>
+      </div>
+</ion-content>

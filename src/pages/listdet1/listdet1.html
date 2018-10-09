@@ -1,0 +1,157 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center margin_bottom_40">
+      <div class="container">
+        <div class="row">
+          <span class="col-20"><a (click)="this.navCtrl.pop()" class="float_left"><img
+            src="./assets/images/icons/back.svg"></a></span>
+          <span class="text_center col-60"><h4>LIST DETAILS</h4></span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right"><img
+            src="./assets/images/icons/listing-option.svg"></a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="padding_top_10 padding_bottom_40">
+        <div class="list_detail text_center">
+          <form style="width:80%; margin:0 10% 0 10% ; " [formGroup]="listdata">
+            <fieldset>
+
+              <input class="input" type="number" name="" placeholder="PRICE" formControlName="price">
+              <ion-item>
+                <ion-label>Show Price</ion-label>
+                <ion-toggle color="secondary" formControlName="PriceState"></ion-toggle>
+              </ion-item>
+             </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.price.valid)">Please Enter Price</p>
+
+          </div>
+            <fieldset>
+              <select class="input select_box" formControlName="currency">
+                <option selected disabled value="null">CURRENCY</option>
+                <option *ngFor="let p of currencylist" value={{p.currency}}>{{p.currency}}</option>
+
+              </select>
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.currency.valid)">Please Choose Currency</p>
+
+          </div>
+            <fieldset>
+              <select class="input select_box" formControlName="availble" placeholder="AVAILABILITY STATUS">
+                <option
+                  value="null" disabled selected>AVAILABILITY STATUS
+                </option>
+                <option  value=1>Available</option>
+                <option value=0>Under Construction</option>
+
+              </select>
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.availble.valid)">Please Enter
+              Availability</p>
+          </div>
+
+            <fieldset>
+              <input class="input" type="text" name="" placeholder="eg Villa , Apartment" formControlName="p1type">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.p1type.valid)">Please Enter Property Type</p>
+
+          </div>
+            <fieldset>
+              <select class="input select_box" formControlName="lottype">
+                <option selected disabled value="null">Measurement Unit</option>
+                <option value="0">Acre</option>
+                <option value="1">Sq.ft</option>
+
+              </select>
+            </fieldset>
+            <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;"> <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.lottype.valid)">Please Enter Measurement Unit</p>
+            </div>
+            <fieldset>
+              <input class="input" type="number" name="" placeholder="LOT SIZE" formControlName="lotsize">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.lotsize.valid)">Please Enter Lot Size</p>
+          </div>
+            <fieldset>
+              <input class="input" type="number" name="" placeholder="PROPERY SIZE" formControlName="psize">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.psize.valid)">Please Enter Property Size</p>
+          </div>
+            <fieldset>
+              <select class="input select_box" formControlName="floors">
+                <option selected disabled value="null">FLOORS</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+                <option value=6>6</option>
+                <option value=7>7</option>
+                <option value=8>8</option>
+                <option value=9>9</option>
+                <option value=10>10</option>
+                <option value=10>11</option>
+                <option value=10>12</option>
+
+              </select>
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.floors.valid)">Please Enter Number Of
+              Floors</p>
+          </div>
+            <fieldset>
+              <select class="input select_box" formControlName="foreclose">
+                <option selected disabled value="null">FORECLOSE?</option>
+                <option value="1">YES</option>
+                <option value="0">NO</option>
+              </select>
+            </fieldset>
+            <!--<div style="margin-bottom: 13px;color: red ; height: 19px;-->
+              <!--margin-top: 2px;">-->
+            <!--<p style="margin-bottom: 13px;color: red ;-->
+              <!--margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.foreclose.valid)">Please Enter Foreclose</p>-->
+          <!--</div>-->
+            <fieldset *ngIf="listdata.value.foreclose=='1'">
+              <input class="input" type="number" name="" placeholder="FORECLOSE PAYMENT MONTHLY"
+                     formControlName="fireclosemonth">
+            </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.fireclosemonth.valid)">
+              Please Enter Monthly Foreclosure Payment Amounts</p>
+          </div>
+          </form>
+        </div>
+      </section>
+    </div>
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+          <img
+            [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li></ul>
+      <ul class="center_side">
+        <li><a (click)="forward();submitted=true;"><img src="./assets/images/icons/sent-mail.svg"></a></li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>

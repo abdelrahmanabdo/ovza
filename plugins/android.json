@@ -1,0 +1,51 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "com-sarriaroman-photoviewer": {
+      "PACKAGE_NAME": "com.inspira.ovza"
+    },
+    "com.synconset.imagepicker": {
+      "PACKAGE_NAME": "com.inspira.ovza"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.inspira.ovza"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.inspira.ovza"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.inspira.ovza"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.inspira.ovza"
+    },
+    "cordova-plugin-filepath": {
+      "PACKAGE_NAME": "com.inspira.ovza"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.inspira.ovza"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.inspira.ovza"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.inspira.ovza"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.inspira.ovza"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.inspira.ovza"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.inspira.ovza"
+    }
+  },
+  "dependent_plugins": {}
+}

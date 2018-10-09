@@ -1,0 +1,127 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center margin_bottom_40">
+      <div class="container">
+        <div class="row">
+          <span class="col-20"></span>
+          <span class="text_center col-60"><h4>LIST YOUR PROPERTY</h4></span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right"><img
+            src="./assets/images/icons/listing-option.svg"></a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="padding_top_10 padding_bottom_40">
+        <div class="list_detail text_center">
+          <form style="width : 80% ;     margin: 0 10% 0 10%;" [formGroup]="listdata">
+            <h4 class="input_title">PROPERTY TYPE</h4>
+            <fieldset>
+              <select class="input select_box" formControlName="ptype">
+                <option selected disabled value="null">Commercial / Residential</option>
+
+                <option value="1">RESIDENTIAL</option>
+                <option value="0">COMMERCIAL</option>
+
+              </select>
+            </fieldset>
+            <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.ptype.valid)">Please Enter Property Type</p>
+          </div>
+
+  <fieldset>
+    <h4 class="input_title">LABEL</h4>
+
+    <select (change)="dosomething7($event.target.value)" class="input select_box" formControlName="plabel">
+      <option disabled selected value="null">PROPERTY FOR RENT/SALE</option>
+
+      <option value=0>PROPERTY FOR SALE</option>
+      <option value=1>PROPERTY FOR RENT</option>
+
+    </select>
+  </fieldset>
+  <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+    <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.plabel.valid)">Please Enter Property
+      Label</p>
+  </div>
+<div [hidden] = "!showrent">
+  <fieldset>
+    <input  class="input" type="text" name="" placeholder="Minimum Lease Period" formControlName="minimum_lease">
+  </fieldset>
+  <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+    <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.minimum_lease.valid)">Please Enter City</p>
+  </div>
+
+  <fieldset>
+    <input class="input" type="text" name="" placeholder="Security Deposit" formControlName="security_charge">
+  </fieldset>
+  <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+    <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.security_charge.valid)">Please Enter City</p>
+  </div>
+</div>
+            <fieldset>
+              <input #input class="input" type="text" name="" placeholder="CITY / REGION" formControlName="pcity">
+            </fieldset>
+            <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.pcity.valid)">Please Enter City</p>
+          </div>
+            <fieldset>
+              <input class="input" type="text" name="" placeholder="HOUSE / STREET ADDRESS" formControlName="paddress">
+            </fieldset>
+            <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.paddress.valid)">Please Enter Address</p>
+          </div>
+            <fieldset>
+              <input class="input" type="number" name="" placeholder="POST CODE" formControlName="ppostcode">
+            </fieldset>
+            <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+            <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !listdata.controls.ppostcode.valid)">Please Enter Postal
+              Code</p>
+          </div>
+          </form>
+        </div>
+      </section>
+      <section style="    width: 80%;
+    height: 300px;
+    margin-top: -53px;
+    position: absolute;
+    left: 10%;
+    margin-bottom:70px;
+    right: 10%;">
+        <div style="height:100%; width: 100%" #map id="map_canvas"></div>
+
+      </section>
+
+
+
+    </div>
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+          <img
+            [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li> </ul>
+      <ul class="center_side">
+        <li><a (click)="onsubmit();submitted=true;"><img src="./assets/images/icons/next.svg"></a></li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>

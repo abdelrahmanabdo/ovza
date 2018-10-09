@@ -1,0 +1,46 @@
+<ion-content>
+  <div>
+
+    <div class="md_box center_box text_center feature_popup padding_top_20">
+      <h5 class="margin_top_bottom_30 main_color">Search {{type1}} Properties</h5>
+      <form [formGroup]="searchform"  #form="ngForm"  class="padding_left_right_20 margin_bottom_50"
+            style="width:80%; margin:0 10% 0 10% ; ">
+        <fieldset>
+          <select class="input select_box" [ngModel]="selectedItem"
+                  formControlName="country">
+            <option selected disabled value="0" name="country" >Select Country</option>
+            <option [disabled]="p.coming_soon" [value]=p.country *ngFor="let p of countriesdata">{{p.country}}
+            </option>
+
+          </select>
+        </fieldset> <div style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+        <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !searchform.controls.country.valid)">Please Enter Your
+          Country</p></div>
+        <fieldset *ngIf="!disablecity">
+          <select  name="city" class="input select_box" formControlName="city"
+                  [ngModel]="selectedItem">
+            <option selected disabled value="0">Select City</option>
+            <option  [value]=p *ngFor="let p of citydata">{{p}}</option>
+
+          </select>
+        </fieldset>
+        <div *ngIf="!disablecity" style="margin-bottom: 13px;color: red ; height: 19px;
+              margin-top: 2px;">
+        <p style="margin-bottom: 13px;color: red ;
+              margin-top: 2px;" [hidden]="!(submitted && !searchform.controls.city.valid)">Please Enter Your City</p>
+        </div><button class="btn btn_block btn_login" (click)="submitted=true;search(form.valid)">SEARCH</button>
+      </form>
+    </div>
+
+    <!--<p style="margin-bottom: 13px;color: red ;
+                  margin-top: 2px;" [hidden]="!(submitted && !serviceobject.type != undefined)">Please Select What Do You Want To Do</p>-->
+    <ul class="feat_tabs" style="text-align : center ; ">
+      <li [class.active]="serviceobject.type == '0'"><a (click)="settype('0')">BUY</a></li>
+      <li [class.active]="serviceobject.type == '1'"><a (click)="settype('1')">RENT</a></li>
+      <li [class.active]="serviceobject.type == 'sell'"><a (click)="sell()">SELL</a></li>
+    </ul>
+
+  </div>
+</ion-content>

@@ -1,0 +1,83 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center">
+      <div class="container">
+        <div class="row">
+          <span class="col-20"><a (click)="this.navCtrl.pop()" class="float_left"><img
+            src="./assets/images/icons/back.svg"></a></span>
+          <span class="text_center col-60"><h4>UPGRADE TO FEATURED LISTING</h4></span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right"><img
+            src="./assets/images/icons/listing-option.svg"></a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="centered text_center">
+        <div class="margin_top_40">
+
+          <div class="margin_bottom_40 margin_top_30" style="width:80% ; margin-left:10% ; margin-rigth:10% ; ">
+            <div class="property_box text_center">
+              <img src="./assets/images/property_item.jpg" title="Ovza">
+              <h5>House Property for {{property_data.rental_form != null ? 'rent' : 'sale' }}</h5>
+              <h5>{{property_data.listaddress2}}</h5>
+              <h5>${{property_data.rental_form != null ? property_data.rental_money : property_data.list_price}} /
+                {{property_data.homesize == undefined || property_data.homesize == '' ? property_data.lotsize :
+                property_data.homesize}} sq.ft</h5>
+            </div>
+          </div>
+
+          <ul class="details max_width_400 margin_auto" style="    margin-right: 10%;
+    margin-left: 20%;
+    width: 75%;
+}">
+            <li>
+              <p class="col_2">Start Date</p>
+              <p class="col_2">09/22/2017</p>
+            </li>
+
+            <li>
+              <p class="col_2">End Date</p>
+              <p class="col_2">09/22/2018</p>
+            </li>
+
+            <li>
+              <p class="col_2">Status</p>
+              <p class="col_2">Pending</p>
+            </li>
+
+            <li>
+              <p class="col_2">Total Amount</p>
+              <p class="col_2">$20</p>
+            </li>
+          </ul>
+
+          <div class="max_width_200 margin_auto margin_top_20 margin_bottom_40"
+               style="margin-bottom:101px; !important;">
+            <button class="btn btn_block btn_login" (click)="listpay()">CREDIT/DEBIT</button>
+            <!-- <a href="http://2checkout.com" target="_system">
+              <button class="btn btn_block btn_login">Credit/Debit</button>
+            </a> -->
+
+          </div>
+
+
+        </div>
+      </section>
+    </div>
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+          <img
+            [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li> </ul>
+      <ul class="center_side">
+        <li><a href="javascript:void(0)"><img src="./assets/images/icons/question.svg"></a></li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>

@@ -1,0 +1,66 @@
+<ion-content>
+  <div class="wrapper">
+    <header class="header text_center">
+      <div class="container">
+        <div class="row">
+						<span class="col-20"><a (click)="this.navCtrl.pop()" class="float_left">
+							<img src="./assets/images/icons/back.svg">
+						</a></span>
+          <span class="text_center col-60"><h4>PHOTOS</h4></span>
+          <span class="col-20"><a (click)="openmenu()" class="float_right">
+							<img src="./assets/images/icons/listing-option.svg">
+						</a></span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="centered text_center">
+        <div class="margin_top_40 margin_bottom_60">
+          <div class="add_listing">
+            <h5>PHOTOS CAN BRING SPACE TO YOUR LIFE</h5>
+            <article>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat.
+              </p>
+            </article>
+            <div class="actions padding_left_right_20 text_center">
+              <button class="btn btn_inline btn_login" (click)="presentActionSheet()">
+                <img src="./assets/images/icons/add-plus-button.svg" name="avatar" >  ADD FILES
+              </button>
+              <button class="btn btn_inline btn_login">
+                <img src="./assets/images/icons/upload-to-cloud.svg" (click)="upload()" *ngIf="false"> UPLOAD FILES
+              </button>
+            </div>
+            <div class="gallery">
+              <ul *ngFor="let p of uriarray">
+                <li>
+                  <img [src]="p" title="Ovza">
+                </li>
+
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+    <nav class="nav_tabs">
+      <ul class="left_side">
+        <li><a (click)="opennav('home')"><img src="./assets/images/icons/home.svg"></a></li>
+        <li><a (click)="opennav('add')">
+          <img
+            [src]="type=='agent' ? './assets/images/icons/plus-button.svg' : './assets/images/icons/icons8-heart.png' "></a>
+        </li></ul>
+      <ul class="center_side">
+        <li><a (click)="paynow()"><img src="./assets/images/icons/next.svg"></a></li>
+      </ul>
+      <ul class="right_side">
+        <li><a (click)="opennav('chat')"><img src="./assets/images/icons/interface.svg"></a></li>
+        <li><a (click)="opennav('profile')"><img src="./assets/images/icons/avatar.svg"></a></li>
+      </ul>
+    </nav>
+  </div>
+</ion-content>
